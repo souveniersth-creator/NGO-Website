@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Udaan Swan NGO</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Permanent+Marker&amp;family=Inter:wght@300;400;600&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF4D8C", // Hot pink for that Y2K pop
+                        "background-light": "#f3f4f6",
+                        "background-dark": "#0a0a0a", // Deep black
+                        "accent-yellow": "#FFD700",
+                        "accent-blue": "#87CEEB",
+                    },
+                    fontFamily: {
+                        display: ["'Playfair Display'", "serif"],
+                        marker: ["'Permanent Marker'", "cursive"],
+                        body: ["'Inter'", "sans-serif"],
+                    },
+                    rotate: {
+                        '15': '15deg',
+                        '-15': '-15deg',
+                        '8': '8deg',
+                        '-8': '-8deg',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px rgba(255, 77, 140, 0.5), 0 0 20px rgba(255, 77, 140, 0.3)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF4D8C;
+            border-radius: 4px;
+        }
+
+        .text-shadow-retro {
+            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.2);
+        }
+
+        .mix-blend-overlay-custom {
+            mix-blend-mode: overlay;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 transition-colors duration-300 font-body antialiased overflow-x-hidden">
+    <nav class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center text-white">
+        <div class="font-display font-bold text-xl tracking-widest uppercase">
+            Udaan Swan
+        </div>
+        <div class="hidden md:flex space-x-12 text-sm font-medium tracking-wide uppercase">
+            <a class="hover:text-primary transition-colors hover:underline decoration-primary decoration-2 underline-offset-4"
+                href="#">Home</a>
+            <a class="hover:text-primary transition-colors hover:underline decoration-primary decoration-2 underline-offset-4"
+                href="#">Activities</a>
+            <a class="hover:text-primary transition-colors hover:underline decoration-primary decoration-2 underline-offset-4"
+                href="#">Founders</a>
+            <a class="hover:text-primary transition-colors hover:underline decoration-primary decoration-2 underline-offset-4"
+                href="#">Contact</a>
+        </div>
+        <a class="bg-primary hover:bg-white hover:text-black text-white px-6 py-2 rounded-full font-bold uppercase text-xs tracking-wider transition-all duration-300 transform hover:scale-105 border border-transparent hover:border-white shadow-neon"
+            href="#">
+            Get Involved
+        </a>
+    </nav>
+    <header class="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
+        <div class="relative z-20 text-center max-w-4xl mx-auto px-4">
+            <h1 class="font-display text-6xl md:text-8xl lg:text-9xl leading-none mb-4 text-black">
+                <span class="block italic font-light">Udaan</span>
+                <span class="block font-bold tracking-tighter text-shadow-retro">Swan</span>
+            </h1>
+            <p
+                class="font-body text-gray-300 max-w-sm md:max-w-md mx-auto text-sm md:text-base leading-relaxed mt-6 backdrop-blur-sm bg-black/30 p-4 rounded-lg border border-white/10">
+                Brief description of this archive, its meaning, what people can find here. Connecting hearts and
+                creating futures for children in need.
+            </p>
+        </div>
+        <div class="absolute top-32 left-4 md:left-20 transform -rotate-12 z-10 animate-pulse">
+            <div class="flex space-x-1">
+                <span
+                    class="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center font-bold border-2 border-black">H</span>
+                <span
+                    class="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center font-bold border-2 border-black">E</span>
+                <span
+                    class="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center font-bold border-2 border-black">A</span>
+                <span
+                    class="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center font-bold border-2 border-black">R</span>
+                <span
+                    class="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center font-bold border-2 border-black">T</span>
+            </div>
+        </div>
+        <div
+            class="absolute top-24 right-4 md:right-32 transform rotate-6 z-10 w-48 h-48 bg-yellow-200 shadow-lg p-4 font-marker text-black text-lg leading-tight flex items-center justify-center text-center">
+            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-red-400/50 rotate-2"></div>
+            "Don't forget to donate!" <br /> <span class="text-sm mt-2 block"> - xo</span>
+        </div>
+        <img alt="Vintage pink camera aesthetic"
+            class="absolute top-1/2 left-0 md:left-10 transform -translate-y-1/2 -rotate-12 w-48 md:w-64 border-4 border-white shadow-xl z-10 rounded-lg"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxJ-f5QJOAbYBbasxoNetpUkrmZKookWRvTckCC4bFWO2Tiq7DRzh2qGiBPzMaEnRFk0qp7LZPiNybh0oJpe7ofV9adPywjaGGFiclnzWCaWmtZsWkDcUsg-TWV3UNp3HCL7z8s71rBQXVQiIdwTAOc9NFIpqZ9pST9wbb0wBZjF9hciWF1qNtGzbwnrVVRTWSmqW6DZd7m8EiTmVjhX8pBTHBlct0nB25tCrMQlo3wDJcyHwPmaM4jkJYEDMQ6ZJHc1PTB6P8dAk" />
+        <div class="absolute top-1/2 right-4 md:right-20 transform -translate-y-1/2 rotate-12 z-20">
+            <span class="material-icons text-red-600 text-9xl drop-shadow-lg">Udaan Swan</span>
+        </div>
+        <div
+            class="absolute bottom-20 left-10 md:left-32 transform rotate-[-8deg] z-10 bg-orange-100 text-red-800 p-4 border-2 border-red-800 border-dashed w-64 shadow-lg font-mono text-xs">
+            <div class="flex justify-between border-b border-red-800 border-dashed pb-2 mb-2">
+                <span>ADMIT ONE</span>
+                <span>04/15/2025</span>
+            </div>
+            <h3 class="text-lg font-bold text-center">CHARITY GALA</h3>
+            <p class="text-center mt-1">ROW A SEAT 14</p>
+        </div>
+        <div class="absolute bottom-10 right-10 md:right-40 transform rotate-6 z-0 md:z-10">
+            <img src="https://images.unsplash.com/photo-1548504769-900b70ed122e?auto=format&fit=crop&q=80&w=800"
+                alt="Swan"
+                class="relative w-40 h-40 md:w-56 md:h-56 rounded-full shadow-2xl object-cover border-4 border-black/50" />
+        </div>
+    </header>
+    <section class="py-20 px-4 md:px-12 bg-background-light dark:bg-background-dark relative z-30">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
+                <div class="group transform hover:-translate-y-4 transition-transform duration-300">
+                    <div
+                        class="bg-white p-4 pb-12 shadow-xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300 relative">
+                        <div
+                            class="aspect-[4/5] overflow-hidden bg-gray-200 mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img alt="Child smiling with toy" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4zo81eGUrSS3sBi0OLuRKjvnwEe7LofQLavMwm1GJgU_LN0jA4NodZa9rd-L-pMzNWkzjnJmTmc6yX0eEcOUA2I-xz3QkpSktdS8fOfJzyizdDkmG-WwR_CSEn1TqHtAv_V1v8PyfzzaOkyS4X0G00fZBfxkq7nz7Ecb3e1jSANVI_ZBTDnA9QvShICuyxiiDZaKXaL67bZzIHGabYX-KZ-wGXpNoquR2JeTQ5vdzg5OwX5UhjHItqD1zusLyg_SMXpnIBFOhWpA" />
+                        </div>
+                        <div class="absolute bottom-4 left-0 w-full text-center">
+                            <h3 class="font-marker text-2xl text-black transform -rotate-2">Bunny Boy</h3>
+                        </div>
+                        <div class="absolute top-4 right-4 text-xs font-mono text-gray-400 rotate-90 origin-top-right">
+                            D-5</div>
+                    </div>
+                    <div class="text-center mt-6">
+                        <p class="text-gray-500 dark:text-gray-400 font-display text-lg">Help Center, London</p>
+                        <p class="text-gray-400 dark:text-gray-500 font-mono text-sm">1998</p>
+                    </div>
+                </div>
+                <div class="group transform hover:-translate-y-4 transition-transform duration-300">
+                    <div
+                        class="bg-white p-4 pb-12 shadow-xl rotate-[3deg] hover:rotate-0 transition-transform duration-300 relative">
+                        <div
+                            class="aspect-[4/5] overflow-hidden bg-gray-200 mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img alt="Group of kids playing" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx3lHhVF-PxW8xqbuCuXMpJlBRDnavVqAlST6BZ37F7vE90pJDvCySkrNg5pE8LWxiWkDAHf-P_PS2WVtIwx3RYpsoOKLNXFWf5MA1zSnf5OLDgIqoRwyKFtFLSL3upm6WGzfVgMK0F8ve-2_F4-qI0KkPJUd0yimhPVb7VD7nj3tKbTbJEhXVwlc38LFLMlMiZVUjrbtOL3EeWZu-QESx0AaWF73cqnCH1KZN3zyJC2oGK203_-UoeFOVGs_aw-fhPaN4aF6LWCY" />
+                        </div>
+                        <div class="absolute bottom-2 left-0 w-full text-center">
+                            <h3 class="font-marker text-2xl text-blue-700 transform rotate-1">Team Spirit</h3>
+                        </div>
+                        <svg class="absolute bottom-10 right-4 w-12 h-12 text-black/50" fill="none"
+                            stroke="currentColor" stroke-width="2" viewbox="0 0 100 100">
+                            <path d="M10,50 Q30,20 50,50 T90,50"></path>
+                        </svg>
+                    </div>
+                    <div class="text-center mt-6">
+                        <p class="text-gray-500 dark:text-gray-400 font-display text-lg">Outreach, Paris</p>
+                        <p class="text-gray-400 dark:text-gray-500 font-mono text-sm">1998</p>
+                    </div>
+                </div>
+                <div class="group transform hover:-translate-y-4 transition-transform duration-300">
+                    <div
+                        class="bg-white p-4 pb-12 shadow-xl rotate-[-1deg] hover:rotate-0 transition-transform duration-300 relative">
+                        <div
+                            class="aspect-[4/5] overflow-hidden bg-gray-200 mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img alt="Girl reading a book" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqonckhH2VnuWeh-0CYYx6LZcCfzTsBsxckUBHQnLKkvvKU908TFui8oas5k_9a8DAi7MNKxiFPMYuyXd6RIPrwIqW99-gNxqWkPv5NBz4xG5yRVhOLByzPpN16IWjUO7kVYnKQWL_O_KdWtbmTGFNdD_GMjWynTy9YNqFBJ1R22pOFpTlIG4u0Mx-OYO4OuT8r9Kp61kmerX539NQYhbV1Q3zwl2aLdpO0ofH6gAMrGrRbszxdGUlhoWPGeYA5t5RF_1tKFnXzgw" />
+                        </div>
+                        <div class="absolute bottom-4 left-0 w-full text-center">
+                            <h3 class="font-marker text-xl text-red-600 transform -rotate-3 text-left pl-6">Vet Visit
+                            </h3>
+                        </div>
+                        <div
+                            class="absolute -bottom-2 -right-2 bg-yellow-300 px-2 py-1 font-mono text-xs text-black transform rotate-12 shadow-sm">
+                            Verified</div>
+                    </div>
+                    <div class="text-center mt-6">
+                        <p class="text-gray-500 dark:text-gray-400 font-display text-lg">Education, NYC</p>
+                        <p class="text-gray-400 dark:text-gray-500 font-mono text-sm">1998</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 border-t border-gray-800 relative bg-background-light dark:bg-background-dark">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="font-display text-5xl md:text-7xl text-gray-900 dark:text-white mb-2 leading-tight">
+                    Article<br /><span class="italic font-light">Name</span>
+                </h2>
+                <div class="flex items-center space-x-4 mb-8 text-gray-500">
+                    <span class="uppercase tracking-widest text-sm">Place</span>
+                    <span class="w-12 h-[1px] bg-gray-600"></span>
+                    <span class="font-mono">1998</span>
+                </div>
+                <p class="font-body text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-6">
+                    With a heart anchored in weddings, travel, interiors, architecture, culture, fashion, and design, I
+                    bring a thoughtful, boundary-pushing approach to every creative project. I'm endlessly curious about
+                    how traditions evolve and passionate about reimagining them in personal and meaningful ways.
+                </p>
+                <p class="font-body text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed">
+                    Whether styling a wedding, directing a shoot, or shaping editorial narratives, I lead with intention
+                    and emotion, crafting experiences that honour life's milestones and elevate the everyday.
+                    Approachable, driven, and collaboratively by nature, I thrive when working alongside visionary
+                    creatives.
+                </p>
+                <div class="mt-10">
+                    <a class="inline-block border-b border-primary text-primary pb-1 font-mono hover:text-white transition-colors"
+                        href="#">Read Full Story -&gt;</a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="relative z-10 transform rotate-2 border-8 border-white shadow-2xl">
+                    <img alt="Vintage field of flowers"
+                        class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUpC_jeWLoftdjs0M2xvoLPi94A4MTvWRu3sPjJaRGyZhJdbgV329i3rqsF_R51UMW-aAetDvZXxjWuFuPXVdUVuuF5a3Np0e1aEVeAMRbfPHnQSf_JLbOmzG0jCNNSyDygpEBdO1GSUFz4DAoqmoHGEmy9BdDAJfL0pgOfXjlWAyxwkKekQBfS74Uz9XbIlBKAypXHFD0gIsH9qlcbyowZPUkKE-ak9Zlyu2SdFhGtLuOyguXA-HdOOiagieJ4R80car3Qi7ero8" />
+                </div>
+                <div
+                    class="absolute top-24 -left-10 md:-left-16 z-20 w-3/4 transform -rotate-6 border-4 border-white shadow-xl bg-orange-50 p-2">
+                    <img alt="Hollywood retro sign aesthetic" class="w-full h-auto sepia"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6TO3FrLE6Xfu60YRVTWEZUWNrd8NXqspKr8p-oAMnkMn106U0n3xTxYahEUkizyp2rBRHMNAUxbiZLPm083eXDo919ni9nsJbicljCcCwa106pQnS6yKpUC48_Lsy88J2-Gyfe5FkGi_y9AKsZ-ju3KSw7VYJSHgwN9lDuyPLzbLiOLUSEZDKHelhxXu5HJ1RrtPwyD9PksY__CetJ89UMTxNXEVyfSK50tWElvkmcgLTw6X2qhXhB_Epuy4q1RQsSaZTn6sBpRY" />
+                    <div class="font-marker text-center text-red-500 text-xl mt-2">Greetings from Hollywood</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-background-light dark:bg-background-dark relative overflow-hidden">
+        <div
+            class="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div class="relative">
+                <h2 class="font-display text-6xl text-gray-900 dark:text-white mb-6">
+                    About<br />
+                    <span class="italic font-light ml-8">Us</span>
+                </h2>
+                <div class="w-16 h-1 bg-primary mb-8 ml-2"></div>
+                <p class="text-gray-400 max-w-sm mb-12">
+                    Brief description of your work, what you enjoy, small things about you. We are a collective of
+                    dreamers.
+                </p>
+                <div
+                    class="relative w-64 h-80 mx-auto md:mx-0 transform rotate-6 border-8 border-white shadow-2xl bg-white">
+                    <img alt="Portrait of founder" class="w-full h-[85%] object-cover grayscale"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVb2wMF6SoipoxBnsPhK12NYpxpddqhOeeVPReA9gFA_s2m-IRER2Jcv3HjNZh6_3IykskHlPhCbm4Flr_hhQM9ZiuO5bqyUBV1sE7ytsJmkZ2iR-3CcEr-OmQ72MMzFM29FGDw2ywkogCV9P53HA_Ss4Y8brtKwUnPilExezCeukgSxqODu-dkarhihk3InguTDGm_TdWhFrza1iTDaKil7ri9581VinT7LaX41wWtmKZ5xaBkT72ddGO31u8xdJjeO3mvB19JBc" />
+                    <div class="h-[15%] flex items-center justify-center">
+                        <span class="font-marker text-black text-lg">The Founder</span>
+                    </div>
+                    <div
+                        class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-white/30 backdrop-blur-sm rotate-2 shadow-sm border border-white/40">
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between relative">
+                <div
+                    class="self-center md:self-end bg-white p-6 shadow-2xl transform -rotate-2 max-w-xs relative mb-12">
+                    <div class="absolute inset-0 bg-gradient-to-br from-transparent to-black/5 pointer-events-none">
+                    </div>
+                    <div class="font-marker text-3xl text-gray-800 text-center py-8 border border-gray-100">
+                        (123) 456-7890
+                    </div>
+                    <div
+                        class="absolute right-[-10px] top-1/2 transform -translate-y-1/2 -rotate-90 text-[10px] text-red-500 font-sans tracking-widest uppercase">
+                        Do not really contact
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    <h2 class="font-display text-6xl text-gray-900 dark:text-white mb-2 leading-none">
+                        Get in<br />
+                        <span class="italic font-light">touch!</span>
+                    </h2>
+                    <div class="grid grid-cols-2 gap-8 mt-12 font-mono text-sm text-gray-400">
+                        <div>
+                            <p class="text-white mb-1">email</p>
+                            <p class="hover:text-primary cursor-pointer transition-colors">@instagram</p>
+                            <p class="hover:text-primary cursor-pointer transition-colors">@tiktok</p>
+                        </div>
+                        <div>
+                            <p class="text-white mb-1">City, Country</p>
+                            <p>Phone Number</p>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-gray-600 text-xs font-mono uppercase tracking-widest">
+                        zetnixit · 2026-02-17
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="w-full h-2 bg-gradient-to-r from-primary via-purple-500 to-blue-500"></div>
+</body>
+
+</html>
