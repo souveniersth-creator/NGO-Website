@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 
 import Link from 'next/link';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -27,13 +28,18 @@ export default function ContactPage() {
         window.open(`mailto:udaanswan@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`, '_blank');
     };
 
+    const titleReveal = useScrollReveal({ threshold: 0.2 });
+    const phoneCard = useScrollReveal({ threshold: 0.15 });
+    const formCard = useScrollReveal({ threshold: 0.1 });
+    const ticketCard = useScrollReveal({ threshold: 0.15 });
+
     return (
         <div className="bg-[var(--bg-page)] text-[var(--text-main)] min-h-screen relative overflow-x-hidden selection:bg-pink-300 selection:text-black font-body antialiased transition-colors duration-300">
             {/* Nav removed in favor of global Header */}
             <main className="container mx-auto px-4 pt-32 pb-20 relative z-10 max-w-6xl">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20">
-                    <div className="md:col-span-5 flex flex-col justify-center relative">
-                        <div className="absolute -top-10 -left-10 w-24 h-24 rounded-full bg-yellow-300 flex items-center justify-center text-black font-bold transform -rotate-12 animate-pulse hidden lg:flex shadow-lg z-0">
+                    <div ref={titleReveal.ref} className={`md:col-span-5 flex flex-col justify-center relative reveal reveal-left ${titleReveal.isVisible ? 'visible' : ''}`}>
+                        <div className="absolute -top-10 -left-10 w-24 h-24 rounded-full bg-yellow-300 flex items-center justify-center text-black font-bold transform -rotate-12 animate-breathe hidden lg:flex shadow-lg z-0">
                             <span className="text-xs text-center font-courier">HELLO<br />FRIEND!</span>
                         </div>
                         <h1 className="font-display text-7xl md:text-8xl lg:text-9xl leading-[0.85] mb-8 relative z-10 text-[var(--text-main)]">
@@ -55,7 +61,7 @@ export default function ContactPage() {
                         </div>
                     </div>
                     <div className="md:col-span-7 relative flex flex-col gap-16 md:gap-24 pt-12 md:pt-0">
-                        <div className="relative group self-end md:mr-10 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div ref={phoneCard.ref} className={`relative group self-end md:mr-10 transform rotate-2 hover:rotate-0 transition-transform duration-500 reveal reveal-right stagger-1 ${phoneCard.isVisible ? 'visible' : ''}`}>
                             <div className="tape absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-8 bg-white/30 backdrop-blur-sm shadow-sm rotate-2"></div>
                             <div className="bg-paper-white w-full max-w-sm p-6 shadow-scrap relative paper-texture">
                                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-200/20 via-transparent to-gray-400/20 pointer-events-none"></div>
@@ -69,7 +75,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative self-start md:ml-4 transform -rotate-1 hover:rotate-0 transition-transform duration-500 w-full max-w-md z-30">
+                        <div ref={formCard.ref} className={`relative self-start md:ml-4 transform -rotate-1 hover:rotate-0 transition-transform duration-500 w-full max-w-md z-30 reveal reveal-up stagger-3 ${formCard.isVisible ? 'visible' : ''}`}>
                             <div className="tape absolute -top-4 left-10 w-16 h-8 rotate-1"></div>
                             <div className="bg-[#e8e4d9] p-6 shadow-scrap paper-texture relative overflow-hidden">
                                 <div className="border-b border-gray-400 pb-2 mb-4 flex justify-between items-end">
@@ -106,7 +112,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative self-end md:mr-0 lg:-mt-12 transform rotate-3 hover:rotate-0 transition-transform duration-500 w-full max-w-xs z-20">
+                        <div ref={ticketCard.ref} className={`relative self-end md:mr-0 lg:-mt-12 transform rotate-3 hover:rotate-0 transition-transform duration-500 w-full max-w-xs z-20 reveal reveal-right stagger-5 ${ticketCard.isVisible ? 'visible' : ''}`}>
                             <div className="bg-secondary text-black shadow-scrap relative flex overflow-hidden">
                                 <div className="absolute left-0 top-0 bottom-0 w-4 flex flex-col justify-between items-center py-2 bg-black/10 border-r border-dashed border-black/30">
                                 </div>

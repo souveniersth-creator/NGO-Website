@@ -37,7 +37,7 @@ export default function Header() {
     };
 
     return (
-        <nav suppressHydrationWarning className="fixed top-0 w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center text-white pointer-events-auto">
+        <nav suppressHydrationWarning className="fixed top-0 w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center text-white pointer-events-auto animate-fadeInDown" style={{ animationDuration: '0.6s', animationDelay: '0.2s', animationFillMode: 'both' }}>
             {/* Logo */}
             <Link href="/" className="font-display font-bold text-xl tracking-widest uppercase cursor-pointer z-50 relative">
                 Udaan Swan

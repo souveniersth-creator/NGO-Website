@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 
 import Link from 'next/link';
 import FlipCard from './FlipCard';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function ActivitiesArchive() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,12 +14,21 @@ export default function ActivitiesArchive() {
         setIsModalOpen(!isModalOpen);
     };
 
+    const sidebarReveal = useScrollReveal({ threshold: 0.2 });
+    const row1Card1 = useScrollReveal({ threshold: 0.1 });
+    const row1Card2 = useScrollReveal({ threshold: 0.1 });
+    const row1Card3 = useScrollReveal({ threshold: 0.1 });
+    const row2Card1 = useScrollReveal({ threshold: 0.1 });
+    const row2Card2 = useScrollReveal({ threshold: 0.1 });
+    const row2Card3 = useScrollReveal({ threshold: 0.1 });
+    const footerReveal = useScrollReveal({ threshold: 0.2 });
+
     return (
         <div className="bg-[var(--bg-page)] text-[var(--text-main)] font-body antialiased transition-colors duration-300 min-h-screen">
             {/* Nav removed in favor of global Header */}
             <main className="container mx-auto px-4 pt-32 pb-20">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-                    <div className="lg:w-1/4 lg:sticky lg:top-32 h-fit mb-12 lg:mb-0 z-10">
+                    <div ref={sidebarReveal.ref} className={`lg:w-1/4 lg:sticky lg:top-32 h-fit mb-12 lg:mb-0 z-10 reveal reveal-left ${sidebarReveal.isVisible ? 'visible' : ''}`}>
                         <h1 className="font-display text-5xl md:text-7xl leading-tight mb-6 text-[var(--text-main)]">
                             Our <br /> <span className="italic font-light">Memory</span> <br /> Lane
                         </h1>
@@ -34,6 +44,7 @@ export default function ActivitiesArchive() {
                     </div>
                     <div className="lg:w-3/4">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 md:gap-y-24 px-4 md:px-0">
+                            <div ref={row1Card1.ref} className={`reveal reveal-up stagger-1 ${row1Card1.isVisible ? 'visible' : ''}`}>
                             <FlipCard
                                 containerClassName="group relative transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-500 ease-out z-0 hover:z-20"
                                 innerClassName="p-3 pb-12 polaroid-shadow"
@@ -49,6 +60,8 @@ export default function ActivitiesArchive() {
                                 </div>
                                 <span className="absolute bottom-4 right-4 font-caveat text-blue-600 text-lg -rotate-12 opacity-80">Best day ever!</span>
                             </FlipCard>
+                            </div>
+                            <div ref={row1Card2.ref} className={`reveal reveal-up stagger-3 ${row1Card2.isVisible ? 'visible' : ''}`}>
                             <FlipCard
                                 containerClassName="group relative transform rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-500 ease-out z-0 hover:z-20 md:mt-12"
                                 innerClassName="p-3 pb-10 polaroid-shadow"
@@ -63,6 +76,8 @@ export default function ActivitiesArchive() {
                                     <p className="font-display text-xs text-gray-500 mt-1 uppercase tracking-widest">Community Center</p>
                                 </div>
                             </FlipCard>
+                            </div>
+                            <div ref={row1Card3.ref} className={`reveal reveal-up stagger-5 ${row1Card3.isVisible ? 'visible' : ''}`}>
                             <FlipCard
                                 containerClassName="group relative transform -rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-500 ease-out z-0 hover:z-20"
                                 innerClassName="p-3 pb-14 polaroid-shadow"
@@ -77,6 +92,8 @@ export default function ActivitiesArchive() {
                                 </div>
                                 <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-yellow-400 opacity-60 flex items-center justify-center font-bold text-[10px] text-red-600 rotate-12 border border-yellow-600">NEW</div>
                             </FlipCard>
+                            </div>
+                            <div ref={row2Card1.ref} className={`reveal reveal-up stagger-1 ${row2Card1.isVisible ? 'visible' : ''}`}>
                             <FlipCard
                                 containerClassName="group relative transform rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-500 ease-out z-0 hover:z-20 md:col-start-1 lg:col-start-1"
                                 innerClassName="p-3 pb-8 polaroid-shadow"
@@ -94,6 +111,8 @@ export default function ActivitiesArchive() {
                                     <span className="font-caveat text-xs text-gray-400">14/02</span>
                                 </div>
                             </FlipCard>
+                            </div>
+                            <div ref={row2Card2.ref} className={`reveal reveal-up stagger-3 ${row2Card2.isVisible ? 'visible' : ''}`}>
                             <FlipCard
                                 containerClassName="group relative transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-500 ease-out z-0 hover:z-20 md:mt-20"
                                 innerClassName="p-4 pb-12 polaroid-shadow"
@@ -108,6 +127,8 @@ export default function ActivitiesArchive() {
                                     <p className="font-display text-xs text-gray-500 mt-2 uppercase tracking-widest">Park Day 2022</p>
                                 </div>
                             </FlipCard>
+                            </div>
+                            <div ref={row2Card3.ref} className={`reveal reveal-up stagger-5 ${row2Card3.isVisible ? 'visible' : ''}`}>
                             <FlipCard
                                 containerClassName="group relative transform rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-500 ease-out z-0 hover:z-20"
                                 innerClassName="p-3 pb-10 polaroid-shadow"
@@ -125,6 +146,7 @@ export default function ActivitiesArchive() {
                                     <path d="M20,50 Q40,10 60,50 T90,50"></path>
                                 </svg>
                             </FlipCard>
+                            </div>
                         </div>
                         <div className="mt-32 flex justify-center pb-20">
                             <button
@@ -199,7 +221,7 @@ export default function ActivitiesArchive() {
             )}
 
             <div className="fixed inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.07] z-50" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E")' }}></div>
-            <footer className="border-t border-gray-800 dark:border-gray-800 py-12 bg-[var(--bg-page)] relative z-10">
+            <footer ref={footerReveal.ref} className={`border-t border-gray-800 dark:border-gray-800 py-12 bg-[var(--bg-page)] relative z-10 reveal reveal-up ${footerReveal.isVisible ? 'visible' : ''}`}>
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 uppercase tracking-widest font-display">
                     <p>© 2023 NGO Collective. Est 1998.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">

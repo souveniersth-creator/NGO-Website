@@ -4,10 +4,26 @@ import React, { useState, useEffect } from 'react';
 
 import Link from 'next/link';
 import Draggable from './Draggable';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function LandingPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+    // Scroll reveal hooks for each section
+    const heroText = useScrollReveal({ threshold: 0.2 });
+    const gallerySection = useScrollReveal({ threshold: 0.1 });
+    const galleryCard1 = useScrollReveal({ threshold: 0.15 });
+    const galleryCard2 = useScrollReveal({ threshold: 0.15 });
+    const galleryCard3 = useScrollReveal({ threshold: 0.15 });
+    const articleSection = useScrollReveal({ threshold: 0.1 });
+    const articleText = useScrollReveal({ threshold: 0.15 });
+    const articleImages = useScrollReveal({ threshold: 0.15 });
+    const aboutSection = useScrollReveal({ threshold: 0.1 });
+    const aboutTitle = useScrollReveal({ threshold: 0.15 });
+    const aboutFounder = useScrollReveal({ threshold: 0.15 });
+    const contactBlock = useScrollReveal({ threshold: 0.15 });
+    const getInTouch = useScrollReveal({ threshold: 0.15 });
 
     const [isLoading, setIsLoading] = useState(true);
     const [isFadingOut, setIsFadingOut] = useState(false);
@@ -81,12 +97,12 @@ export default function LandingPage() {
             )}
             {/* Nav removed in favor of global Header */}
             <header className="relative min-h-screen flex flex-col items-center justify-center pt-24 overflow-hidden">
-                <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
-                    <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-none mb-4 text-[var(--text-main)]">
+                <div ref={heroText.ref} className={`relative z-20 text-center max-w-4xl mx-auto px-4 reveal reveal-blur ${heroText.isVisible ? 'visible' : ''}`}>
+                    <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-none mb-4 text-[var(--text-main)] animate-text-glow">
                         <span className="block italic font-light">Udaan</span>
                         <span className="block font-bold tracking-tighter text-shadow-retro">Swan</span>
                     </h1>
-                    <p className="font-body text-white max-w-sm md:max-w-md mx-auto text-sm md:text-base leading-relaxed mt-6 backdrop-blur-sm bg-black/30 p-4 rounded-lg border border-white/10">
+                    <p className="font-body text-white max-w-sm md:max-w-md mx-auto text-sm md:text-base leading-relaxed mt-6 backdrop-blur-sm bg-black/30 p-4 rounded-lg border border-white/10 animate-border-glow">
                         Empowering lives, inspiring change, and transforming communities through compassion, innovation, and unwavering commitment to a better tomorrow.
                     </p>
                 </div>
@@ -183,7 +199,7 @@ export default function LandingPage() {
                         className="transform rotate-0 w-16 h-16 md:w-30 md:h-30 drop-shadow-xl select-none opacity-80 object-contain"
                     />
                 </Draggable>
-                <Draggable className="absolute top-190 left-200 md:left-5/7 z-7">
+                <Draggable className="absolute top-180 left-200 md:left-5/7 z-7">
                     <img
                         draggable={false}
                         src="/stickers/tree.png"
@@ -191,12 +207,12 @@ export default function LandingPage() {
                         className="transform rotate-0 w-25 h-25 md:w-30 md:h-30 drop-shadow-xl select-none opacity-80 object-contain"
                     />
                 </Draggable>
-                <Draggable className="absolute top-200 left-200 md:left-4/9 z-10">
+                <Draggable className="absolute top-180 left-200 md:left-4/9 z-5">
                     <img
                         draggable={false}
                         src="/stickers/two hands.png"
                         alt="Two Hands"
-                        className="transform rotate-0 w-16 h-16 md:w-30 md:h-30 drop-shadow-xl select-none opacity-80 object-contain"
+                        className="transform rotate-0 w-16 h-20 md:w-30 md:h-30 drop-shadow-xl select-none opacity-80 object-contain"
                     />
                 </Draggable>
                 <Draggable className="absolute top-75 left-200 md:left-1/10 z-10">
@@ -213,7 +229,7 @@ export default function LandingPage() {
             <section className="py-20 px-4 md:px-12 bg-background-light dark:bg-background-dark relative z-30">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
-                        <div className="group transform hover:-translate-y-4 transition-transform duration-300">
+                        <div ref={galleryCard1.ref} className={`group transform hover:-translate-y-4 transition-all duration-500 reveal reveal-up stagger-1 ${galleryCard1.isVisible ? 'visible' : ''}`}>
                             <div className="bg-white p-4 pb-12 shadow-xl -rotate-2 hover:rotate-0 transition-transform duration-300 relative">
                                 <div className="aspect-[4/5] overflow-hidden bg-gray-200 mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
                                     <img alt="Child smiling with toy" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4zo81eGUrSS3sBi0OLuRKjvnwEe7LofQLavMwm1GJgU_LN0jA4NodZa9rd-L-pMzNWkzjnJmTmc6yX0eEcOUA2I-xz3QkpSktdS8fOfJzyizdDkmG-WwR_CSEn1TqHtAv_V1v8PyfzzaOkyS4X0G00fZBfxkq7nz7Ecb3e1jSANVI_ZBTDnA9QvShICuyxiiDZaKXaL67bZzIHGabYX-KZ-wGXpNoquR2JeTQ5vdzg5OwX5UhjHItqD1zusLyg_SMXpnIBFOhWpA" />
@@ -228,7 +244,7 @@ export default function LandingPage() {
                                 <p className="text-gray-400 dark:text-gray-500 font-mono text-sm">1998</p>
                             </div>
                         </div>
-                        <div className="group transform hover:-translate-y-4 transition-transform duration-300">
+                        <div ref={galleryCard2.ref} className={`group transform hover:-translate-y-4 transition-all duration-500 reveal reveal-up stagger-3 ${galleryCard2.isVisible ? 'visible' : ''}`}>
                             <div className="bg-white p-4 pb-12 shadow-xl rotate-[3deg] hover:rotate-0 transition-transform duration-300 relative">
                                 <div className="aspect-[4/5] overflow-hidden bg-gray-200 mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
                                     <img alt="Group of kids playing" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx3lHhVF-PxW8xqbuCuXMpJlBRDnavVqAlST6BZ37F7vE90pJDvCySkrNg5pE8LWxiWkDAHf-P_PS2WVtIwx3RYpsoOKLNXFWf5MA1zSnf5OLDgIqoRwyKFtFLSL3upm6WGzfVgMK0F8ve-2_F4-qI0KkPJUd0yimhPVb7VD7nj3tKbTbJEhXVwlc38LFLMlMiZVUjrbtOL3EeWZu-QESx0AaWF73cqnCH1KZN3zyJC2oGK203_-UoeFOVGs_aw-fhPaN4aF6LWCY" />
@@ -245,7 +261,7 @@ export default function LandingPage() {
                                 <p className="text-gray-400 dark:text-gray-500 font-mono text-sm">1998</p>
                             </div>
                         </div>
-                        <div className="group transform hover:-translate-y-4 transition-transform duration-300">
+                        <div ref={galleryCard3.ref} className={`group transform hover:-translate-y-4 transition-all duration-500 reveal reveal-up stagger-5 ${galleryCard3.isVisible ? 'visible' : ''}`}>
                             <div className="bg-white p-4 pb-12 shadow-xl rotate-[-1deg] hover:rotate-0 transition-transform duration-300 relative">
                                 <div className="aspect-[4/5] overflow-hidden bg-gray-200 mb-4 grayscale group-hover:grayscale-0 transition-all duration-500">
                                     <img alt="Girl reading a book" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqonckhH2VnuWeh-0CYYx6LZcCfzTsBsxckUBHQnLKkvvKU908TFui8oas5k_9a8DAi7MNKxiFPMYuyXd6RIPrwIqW99-gNxqWkPv5NBz4xG5yRVhOLByzPpN16IWjUO7kVYnKQWL_O_KdWtbmTGFNdD_GMjWynTy9YNqFBJ1R22pOFpTlIG4u0Mx-OYO4OuT8r9Kp61kmerX539NQYhbV1Q3zwl2aLdpO0ofH6gAMrGrRbszxdGUlhoWPGeYA5t5RF_1tKFnXzgw" />
@@ -263,9 +279,9 @@ export default function LandingPage() {
                     </div>
                 </div>
             </section>
-            <section className="py-24 border-t border-gray-800 relative bg-background-light dark:bg-background-dark">
+            <section ref={articleSection.ref} className="py-24 border-t border-gray-800 relative bg-background-light dark:bg-background-dark">
                 <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <div>
+                    <div ref={articleText.ref} className={`reveal reveal-left ${articleText.isVisible ? 'visible' : ''}`}>
                         <h2 className="font-display text-5xl md:text-7xl text-gray-900 dark:text-white mb-2 leading-tight">
                             Article<br /><span className="italic font-light">Name</span>
                         </h2>
@@ -289,7 +305,7 @@ export default function LandingPage() {
                             </button>
                         </div>
                     </div>
-                    <div className="relative">
+                    <div ref={articleImages.ref} className={`relative reveal reveal-right stagger-2 ${articleImages.isVisible ? 'visible' : ''}`}>
                         <div className="relative z-10 transform rotate-2 border-8 border-white shadow-2xl">
                             <img alt="Vintage field of flowers" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUpC_jeWLoftdjs0M2xvoLPi94A4MTvWRu3sPjJaRGyZhJdbgV329i3rqsF_R51UMW-aAetDvZXxjWuFuPXVdUVuuF5a3Np0e1aEVeAMRbfPHnQSf_JLbOmzG0jCNNSyDygpEBdO1GSUFz4DAoqmoHGEmy9BdDAJfL0pgOfXjlWAyxwkKekQBfS74Uz9XbIlBKAypXHFD0gIsH9qlcbyowZPUkKE-ak9Zlyu2SdFhGtLuOyguXA-HdOOiagieJ4R80car3Qi7ero8" />
                         </div>
@@ -300,19 +316,19 @@ export default function LandingPage() {
                     </div>
                 </div>
             </section>
-            <section className="py-24 bg-[var(--bg-page)] relative overflow-hidden">
+            <section ref={aboutSection.ref} className="py-24 bg-[var(--bg-page)] relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
                 <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
                     <div className="relative">
-                        <h2 className="font-display text-6xl text-[var(--text-main)] mb-6">
+                        <h2 ref={aboutTitle.ref} className={`font-display text-6xl text-[var(--text-main)] mb-6 reveal reveal-up ${aboutTitle.isVisible ? 'visible' : ''}`}>
                             About Us<br />
                             {/* <span className="italic font-light ml-8">Us</span> */}
                         </h2>
                         <div className="w-16 h-1 bg-primary mb-8 ml-2"></div>
-                        <p className="text-gray-400 max-w-sm mb-12">
+                        <p className={`text-gray-400 max-w-sm mb-12 reveal reveal-up stagger-2 ${aboutTitle.isVisible ? 'visible' : ''}`}>
                             Brief description of your work, what you enjoy, small things about you. We are a collective of dreamers.
                         </p>
-                        <div className="relative w-64 h-80 mx-auto md:mx-0 transform rotate-6 border-8 border-white shadow-2xl bg-white">
+                        <div ref={aboutFounder.ref} className={`relative w-64 h-80 mx-auto md:mx-0 transform rotate-6 border-8 border-white shadow-2xl bg-white reveal reveal-scale stagger-3 ${aboutFounder.isVisible ? 'visible' : ''}`}>
                             <img alt="Portrait of founder" className="w-full h-[85%] object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVb2wMF6SoipoxBnsPhK12NYpxpddqhOeeVPReA9gFA_s2m-IRER2Jcv3HjNZh6_3IykskHlPhCbm4Flr_hhQM9ZiuO5bqyUBV1sE7ytsJmkZ2iR-3CcEr-OmQ72MMzFM29FGDw2ywkogCV9P53HA_Ss4Y8brtKwUnPilExezCeukgSxqODu-dkarhihk3InguTDGm_TdWhFrza1iTDaKil7ri9581VinT7LaX41wWtmKZ5xaBkT72ddGO31u8xdJjeO3mvB19JBc" />
                             <div className="h-[15%] flex items-center justify-center">
                                 <span className="font-marker text-black text-lg">The Founder</span>
@@ -321,7 +337,7 @@ export default function LandingPage() {
                         </div>
                     </div>
                     <div className="flex flex-col justify-between relative">
-                        <div className="self-center md:self-end bg-white p-6 shadow-2xl transform -rotate-2 max-w-xs relative mb-12">
+                        <div ref={contactBlock.ref} className={`self-center md:self-end bg-white p-6 shadow-2xl transform -rotate-2 max-w-xs relative mb-12 reveal reveal-right stagger-2 ${contactBlock.isVisible ? 'visible' : ''}`}>
                             <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/5 pointer-events-none"></div>
                             <div className="font-marker text-3xl text-gray-800 text-center py-8 border border-gray-100">
                                 (123) 123-1234
@@ -330,7 +346,7 @@ export default function LandingPage() {
                                 contact for more info
                             </div>
                         </div>
-                        <div className="mt-auto relative z-10">
+                        <div ref={getInTouch.ref} className={`mt-auto relative z-10 reveal reveal-up stagger-3 ${getInTouch.isVisible ? 'visible' : ''}`}>
                             <h2 className="font-display text-6xl text-[var(--text-main)] mb-2 leading-none">
                                 <button onClick={() => setIsContactModalOpen(true)} className="block w-full text-left hover:text-primary transition-colors duration-300">
                                     Get in<br />
@@ -355,7 +371,7 @@ export default function LandingPage() {
                     </div>
                 </div>
             </section>
-            <div className="w-full h-2 bg-gradient-to-r from-primary via-purple-500 to-blue-500"></div>
+            <div className="w-full h-2 gradient-divider"></div>
 
             {/* Full Story Modal */}
             {isModalOpen && (

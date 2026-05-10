@@ -4,19 +4,26 @@
 import React, { useState } from 'react';
 
 import Link from 'next/link';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function FoundersProfile() {
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+    const titleReveal = useScrollReveal({ threshold: 0.2 });
+    const founder1 = useScrollReveal({ threshold: 0.15 });
+    const founder2 = useScrollReveal({ threshold: 0.15 });
+    const founder3 = useScrollReveal({ threshold: 0.15 });
+    const ctaReveal = useScrollReveal({ threshold: 0.15 });
 
     return (
         <div className="bg-[var(--bg-page)] text-[var(--text-main)] font-body antialiased overflow-x-hidden relative selection:bg-pink-500 selection:text-white transition-colors duration-300">
             <div className="noise-bg mix-blend-overlay"></div>
             {/* Nav removed in favor of global Header */}
             <main className="relative min-h-screen pt-24 pb-20 overflow-hidden">
-                <div className="absolute top-20 right-0 w-64 h-64 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-                <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                <div className="absolute top-20 right-0 w-64 h-64 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-breathe"></div>
+                <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-breathe" style={{ animationDelay: '2s' }}></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="mb-24 relative">
+                    <div ref={titleReveal.ref} className={`mb-24 relative reveal reveal-blur ${titleReveal.isVisible ? 'visible' : ''}`}>
                         <h1 className="font-display text-6xl md:text-8xl text-[var(--text-main)] leading-none">
                             The <br /> <span className="italic text-gray-500 dark:text-gray-400 ml-12">Visionaries</span>
                         </h1>
@@ -36,7 +43,7 @@ export default function FoundersProfile() {
                         <img alt="Flower sticker" className="absolute -top-12 left-[30%] w-24 h-24 object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-xl z-20 hidden lg:block transform hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL3q1q9YlocupyCCQCTxTH-vbFXDudUBpG7E9IMkO0iv_36XrAQnn11BR-NzYS8QKK1fUAMpL3wBvgg1ETkSvvmsOA6A1l5u9z5BMdOC_yp2d20t5xGkU9BthwWR79IRSnYNNx4Os19XiGwGAWBje2CX89Xd5D1wfmT6QOVSutoznXx2KJs_n5NBv19TTmZy_wihsRix4mBPBaS90RFDFQq7ZHBAaouZojCLy2ubKLoMbTYdvuVsz4V08rU2R6aZdNzpWsUqUbZlg" />
 
                         {/* Shreya Piya */}
-                        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                        <div ref={founder1.ref} className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 reveal reveal-left ${founder1.isVisible ? 'visible' : ''}`}>
                             <div className="lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center">
                                 <h2 className="font-marker text-5xl mb-6 text-[var(--text-main)]">Shreya Piya</h2>
                                 <p className="font-display text-xl md:text-2xl text-[var(--text-muted)] leading-relaxed italic border-l-4 border-primary pl-6">
@@ -62,7 +69,7 @@ export default function FoundersProfile() {
                         </div>
 
                         {/* Swopnil Kandel */}
-                        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                        <div ref={founder2.ref} className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 reveal reveal-right ${founder2.isVisible ? 'visible' : ''}`}>
                             <div className="lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center">
                                 <h2 className="font-marker text-5xl mb-6 text-[var(--text-main)]">Swopnil Kandel</h2>
                                 <p className="font-display text-xl md:text-2xl text-[var(--text-muted)] leading-relaxed italic border-l-4 border-blue-500 pl-6">
@@ -90,7 +97,7 @@ export default function FoundersProfile() {
                         </div>
 
                         {/* Aniya Piya */}
-                        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                        <div ref={founder3.ref} className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 reveal reveal-left ${founder3.isVisible ? 'visible' : ''}`}>
                             <div className="lg:w-1/2 order-2 lg:order-1 flex flex-col justify-center">
                                 <h2 className="font-marker text-5xl mb-6 text-[var(--text-main)]">Aniya Piya</h2>
                                 <p className="font-display text-xl md:text-2xl text-[var(--text-muted)] leading-relaxed italic border-l-4 border-yellow-500 pl-6">
@@ -118,7 +125,7 @@ export default function FoundersProfile() {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-32 md:mt-48 grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t border-gray-800 pt-12">
+                    <div ref={ctaReveal.ref} className={`mt-32 md:mt-48 grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-t border-gray-800 pt-12 reveal reveal-up ${ctaReveal.isVisible ? 'visible' : ''}`}>
                         <div>
                             <h2 className="font-display text-4xl text-black mb-4">Join the scrapbook.</h2>
                             <p className="text-gray-400 max-w-md">
